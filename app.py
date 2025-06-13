@@ -25,37 +25,59 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Styling dengan CSS (background color)
+# Styling background
 st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(to right, #f2f2f2, #e0e0e0);
+        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
         color: #000000;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .navbar button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Sidebar Navigasi
-st.sidebar.title("Navigasi")
-page = st.sidebar.radio("Pilih Halaman:", ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"])
+# Simulasi Navbar Horizontal
+menu = st.columns(4)
+pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
+clicked = None
+
+for i, label in enumerate(pages):
+    if menu[i].button(label):
+        clicked = label
+
+if clicked is None:
+    clicked = "Beranda"  # default halaman
 
 # Halaman Beranda
-if page == "Beranda":
+if clicked == "Beranda":
     st.title("Deteksi Kerusakan Bangunan Berbasis Citra")
 
-    # Gambar rumah retak
     st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Collapsed_house_after_earthquake_in_Lorengau.jpg/640px-Collapsed_house_after_earthquake_in_Lorengau.jpg",
              caption="Contoh Gambar Bangunan Rusak", use_container_width=True)
 
     st.markdown("""
-    Aplikasi ini dikembangkan untuk membantu proses identifikasi kerusakan bangunan pascabencana menggunakan citra digital. Dengan hanya mengunggah gambar bangunan, sistem akan memprediksi apakah bangunan mengalami kerusakan atau tidak.
+    Aplikasi ini dikembangkan untuk membantu proses identifikasi kerusakan bangunan pascabencana menggunakan citra digital.
 
     ### Tujuan Aplikasi
     - Mempercepat proses inspeksi bangunan terdampak bencana
-    - Mengurangi ketergantungan pada inspeksi manual di lapangan
+    - Mengurangi ketergantungan pada inspeksi manual
     - Memberikan alternatif evaluasi cepat berbasis AI
 
     ### Fitur Utama
@@ -66,28 +88,17 @@ if page == "Beranda":
     ### Cara Menggunakan
     1. Masuk ke halaman Deteksi Gambar
     2. Upload gambar bangunan
-    3. Tunggu beberapa detik, hasil akan muncul di layar
+    3. Tunggu beberapa detik, hasil akan muncul
 
-    ### Siapa yang Cocok Menggunakan Ini?
-    - Mahasiswa teknik sipil atau informatika
+    ### Cocok Digunakan Oleh:
+    - Mahasiswa teknik sipil/informatika
     - Relawan kebencanaan
-    - Dinas PU atau tim inspeksi
-    - Peneliti AI di bidang bangunan & citra digital
-    """)
-
-# Halaman Nama Anggota Kelompok
-elif page == "Nama Anggota Kelompok":
-    st.title("Nama Anggota Kelompok")
-    st.markdown("""
-    - Thania  
-    - Anggi  
-    - Uly  
-    - Nadya  
-    - Gita
+    - Dinas PU
+    - Peneliti AI
     """)
 
 # Halaman Deteksi Gambar
-elif page == "Deteksi Gambar":
+elif clicked == "Deteksi Gambar":
     st.title("Deteksi Kerusakan Bangunan")
 
     uploaded_file = st.file_uploader("Upload Gambar Bangunan", type=["jpg", "jpeg", "png"])
@@ -106,24 +117,34 @@ elif page == "Deteksi Gambar":
             st.success("Hasil Deteksi: Bangunan Tidak Rusak")
 
 # Halaman Tentang Model
-elif page == "Tentang Model":
+elif clicked == "Tentang Model":
     st.title("Tentang Model Deteksi")
 
     st.markdown("""
-    Model yang digunakan dalam aplikasi ini adalah **Random Forest Classifier**, yaitu salah satu algoritma machine learning berbasis pohon keputusan yang bekerja secara ansambel (menggabungkan banyak pohon).
+    Model yang digunakan adalah **Random Forest Classifier**, yaitu algoritma machine learning berbasis pohon keputusan yang bekerja secara ansambel.
 
     ### Fitur Ekstraksi:
-    - **Edge Density**: Mengukur jumlah tepi/retakan dalam gambar
-    - **LBP (Local Binary Pattern)**: Mengidentifikasi tekstur permukaan
-    - **HOG (Histogram of Oriented Gradients)**: Menangkap pola arah dan kontur
+    - **Edge Density**: Mengukur tepi/retakan
+    - **LBP**: Mengidentifikasi tekstur permukaan
+    - **HOG**: Menangkap pola arah dan kontur
 
     ### Evaluasi Model:
     - Akurasi: 75%
-    - Presisi kelas rusak: 100%
-    - Recall kelas rusak: 60%
+    - Presisi (kelas rusak): 100%
+    - Recall (kelas rusak): 60%
     - F1-score: 75%
 
-    Model dilatih menggunakan dataset bangunan rusak dan tidak rusak akibat gempa atau bencana lainnya. Dataset ini kemudian diproses dan diseimbangkan agar hasil klasifikasi tidak bias.
-
-    Aplikasi ini dapat dikembangkan lebih lanjut dengan menambahkan lebih banyak data, menggunakan model deep learning, atau menambahkan klasifikasi tingkat kerusakan (ringan, sedang, berat).
+    Dataset berasal dari gambar bangunan terdampak gempa/bencana dan diproses untuk keseimbangan data. Model ini bisa dikembangkan dengan deep learning dan klasifikasi tingkat kerusakan.
     """)
+
+# Halaman Nama Kelompok
+elif clicked == "Nama Anggota Kelompok":
+    st.title("Nama Anggota Kelompok")
+    st.markdown("""
+    - **Thania**  
+    - **Anggi**  
+    - **Uly**  
+    - **Nadya**  
+    - **Gita**
+    """)
+
