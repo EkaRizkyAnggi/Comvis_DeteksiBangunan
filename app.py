@@ -13,7 +13,7 @@ model = joblib.load('model_rf.pkl')
 def extract_features_from_image(image):
     img = np.array(image)
     img = cv2.resize(img, (150, 150))
-    gray = cv2.cvtColor(img, cv2.COLOR_3DDA853)
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
     edges = cv2.Canny(gray, 100, 200)
     edge_density = edges.sum() / edges.size
@@ -38,14 +38,13 @@ st.markdown(
         justify-content: center;
         margin-bottom: 30px;
         flex-wrap: wrap;
-        color: white;
     }
     .navbar button {
         margin: 5px 10px;
         padding: 10px 20px;
         border: none;
         background-color: #e91e63;
-        color: white;
+        color: white !important;
         font-weight: bold;
         cursor: pointer;
         border-radius: 8px;
@@ -156,7 +155,7 @@ elif clicked == "Nama Anggota Kelompok":
     st.markdown("""
     - **Thania**  
     - **Anggi**  
-    - **Uly**  
-    - **Nadya**  
+    - **nadya**  
+    - **Uly**   
     - **Gita**
     """)
