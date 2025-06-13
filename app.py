@@ -42,16 +42,7 @@ st.markdown(
 st.sidebar.title("Navigasi")
 page = st.sidebar.radio("Pilih Halaman:", ["Beranda", "Deteksi Gambar", "Tentang Model","Nama Anggota Kelompok"])
 
-# Tambahan info: Nama Anggota Kelompok
-st.sidebar.markdown("---")
-st.sidebar.subheader("Kelompok:")
-st.sidebar.markdown("""
-- Thania  
-- Anggi  
-- Uly  
-- Nadya  
-- Gita
-""")
+
 
 # Halaman Beranda
 if page == "Beranda":
@@ -85,6 +76,17 @@ if page == "Beranda":
     - Dinas PU atau tim inspeksi
     - Peneliti AI di bidang bangunan & citra digital
     """)
+
+# halaman nama kelompok 
+
+elif  page == "Nama Anggota Kelompok "
+st.markdown("""
+- Thania  
+- Anggi  
+- Uly  
+- Nadya  
+- Gita
+""")
 
 # Halaman Deteksi Gambar
 elif page == "Deteksi Gambar":
