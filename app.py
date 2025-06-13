@@ -25,7 +25,7 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Styling background dan navbar pink
+# Styling background dan navbar pink cerah
 st.markdown(
     """
     <style>
@@ -43,15 +43,16 @@ st.markdown(
         margin: 5px 10px;
         padding: 10px 20px;
         border: none;
-        background-color: #e91e63;
+        background-color: #f06292;
         color: white !important;
         font-weight: bold;
         cursor: pointer;
         border-radius: 8px;
         transition: background-color 0.3s ease;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
     }
     .navbar button:hover {
-        background-color: #d81b60;
+        background-color: #ec407a;
     }
     </style>
     """,
@@ -73,7 +74,7 @@ for i, label in enumerate(pages):
         clicked = label
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Sinkronisasi navigasi: jika tidak klik tombol, pakai pilihan sidebar
+# Sinkronisasi navigasi
 if clicked is None:
     clicked = sidebar_selection
 
@@ -149,13 +150,13 @@ elif clicked == "Tentang Model":
     Dataset berasal dari gambar bangunan terdampak gempa/bencana dan diproses untuk keseimbangan data. Model ini bisa dikembangkan dengan deep learning dan klasifikasi tingkat kerusakan.
     """)
 
-# Halaman Nama Kelompok
+# Halaman Nama Anggota Kelompok
 elif clicked == "Nama Anggota Kelompok":
     st.title("Nama Anggota Kelompok")
     st.markdown("""
     - **Thania**  
     - **Anggi**  
-    - **nadya**  
+    - **Nadya**  
     - **Uly**   
     - **Gita**
     """)
