@@ -25,9 +25,22 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
+# Styling dengan CSS (background color)
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background: linear-gradient(to right, #f2f2f2, #e0e0e0);
+        color: #000000;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Sidebar Navigasi dan Informasi
 st.sidebar.title("Navigasi")
-page = st.sidebar.radio("Pilih Halaman:", ["Beranda", "Deteksi Gambar", "Tentang Model"])
+page = st.sidebar.radio("Pilih Halaman:", ["Beranda", "Deteksi Gambar", "Tentang Model","Nama Anggota Kelompok"])
 
 # Tambahan info: Nama Anggota Kelompok
 st.sidebar.markdown("---")
@@ -44,25 +57,29 @@ st.sidebar.markdown("""
 if page == "Beranda":
     st.title("Deteksi Kerusakan Bangunan Berbasis Citra")
 
+    # Gambar rumah retak
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Collapsed_house_after_earthquake_in_Lorengau.jpg/640px-Collapsed_house_after_earthquake_in_Lorengau.jpg",
+             caption="Contoh Gambar Bangunan Rusak", use_container_width=True)
+
     st.markdown("""
     Aplikasi ini dikembangkan untuk membantu proses identifikasi kerusakan bangunan pascabencana menggunakan citra digital. Dengan hanya mengunggah gambar bangunan, sistem akan memprediksi apakah bangunan mengalami kerusakan atau tidak.
 
-    ## Tujuan Aplikasi
+    >> Tujuan Aplikasi
     - Mempercepat proses inspeksi bangunan terdampak bencana
     - Mengurangi ketergantungan pada inspeksi manual di lapangan
     - Memberikan alternatif evaluasi cepat berbasis AI
 
-    ## Fitur Utama
+    >> Fitur Utama
     - Upload gambar bangunan
     - Deteksi otomatis: rusak atau tidak rusak
     - Hasil prediksi langsung ditampilkan
 
-    ## Cara Menggunakan
+    >> Cara Menggunakan
     1. Masuk ke halaman Deteksi Gambar
     2. Upload gambar bangunan
     3. Tunggu beberapa detik, hasil akan muncul di layar
 
-    ## Siapa yang Cocok Menggunakan Ini?
+    >> Siapa yang Cocok Menggunakan Ini?
     - Mahasiswa teknik sipil atau informatika
     - Relawan kebencanaan
     - Dinas PU atau tim inspeksi
@@ -95,12 +112,12 @@ elif page == "Tentang Model":
     st.markdown("""
     Model yang digunakan dalam aplikasi ini adalah Random Forest Classifier, yaitu salah satu algoritma machine learning berbasis pohon keputusan yang bekerja secara ansambel (menggabungkan banyak pohon).
 
-    ### Fitur Ekstraksi:
+    >> Fitur Ekstraksi:
     - Edge Density: Mengukur jumlah tepi/retakan dalam gambar
     - LBP (Local Binary Pattern): Mengidentifikasi tekstur permukaan
     - HOG (Histogram of Oriented Gradients): Menangkap pola arah dan kontur
 
-    ### Evaluasi Model:
+    >> Evaluasi Model:
     - Akurasi: 75%
     - Presisi kelas rusak: 100%
     - Recall kelas rusak: 60%
