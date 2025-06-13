@@ -25,34 +25,13 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Styling background dan navbar pink cerah
+# Styling background pink cerah tanpa navbar
 st.markdown(
     """
     <style>
     .stApp {
         background: linear-gradient(to right, #fce4ec, #f3e5f5);
         color: #000000;
-    }
-    .navbar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-    }
-    .navbar button {
-        margin: 5px 10px;
-        padding: 10px 20px;
-        border: none;
-        background-color: #f06292;
-        color: white !important;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
-    }
-    .navbar button:hover {
-        background-color: #ec407a;
     }
     </style>
     """,
@@ -63,20 +42,7 @@ st.markdown(
 pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 
 # Sidebar Navigasi
-sidebar_selection = st.sidebar.radio("Navigasi Menu:", pages)
-
-# Navbar Horizontal
-st.markdown('<div class="navbar">', unsafe_allow_html=True)
-menu = st.columns(len(pages))
-clicked = None
-for i, label in enumerate(pages):
-    if menu[i].button(label):
-        clicked = label
-st.markdown('</div>', unsafe_allow_html=True)
-
-# Sinkronisasi navigasi
-if clicked is None:
-    clicked = sidebar_selection
+clicked = st.sidebar.radio("Navigasi Menu:", pages)
 
 # Halaman Beranda
 if clicked == "Beranda":
@@ -138,25 +104,3 @@ elif clicked == "Tentang Model":
 
     ### Fitur Ekstraksi:
     - **Edge Density**: Mengukur tepi/retakan
-    - **LBP**: Mengidentifikasi tekstur permukaan
-    - **HOG**: Menangkap pola arah dan kontur
-
-    ### Evaluasi Model:
-    - Akurasi: 75%
-    - Presisi (kelas rusak): 100%
-    - Recall (kelas rusak): 60%
-    - F1-score: 75%
-
-    Dataset berasal dari gambar bangunan terdampak gempa/bencana dan diproses untuk keseimbangan data. Model ini bisa dikembangkan dengan deep learning dan klasifikasi tingkat kerusakan.
-    """)
-
-# Halaman Nama Anggota Kelompok
-elif clicked == "Nama Anggota Kelompok":
-    st.title("Nama Anggota Kelompok")
-    st.markdown("""
-    - **Thania**  
-    - **Anggi**  
-    - **Nadya**  
-    - **Uly**   
-    - **Gita**
-    """)
