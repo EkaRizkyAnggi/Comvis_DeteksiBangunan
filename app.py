@@ -13,7 +13,7 @@ model = joblib.load('model_rf.pkl')
 def extract_features_from_image(image):
     img = np.array(image)
     img = cv2.resize(img, (150, 150))
-    gray = cv2.cvtColor(img, cv2.COLOR_3674B5)
+    gray = cv2.cvtColor(img, cv2.COLOR_3DDA853)
 
     edges = cv2.Canny(gray, 100, 200)
     edge_density = edges.sum() / edges.size
