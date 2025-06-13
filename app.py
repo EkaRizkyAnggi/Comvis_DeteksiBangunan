@@ -25,9 +25,20 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Sidebar navigasi
+# Sidebar Navigasi dan Informasi
 st.sidebar.title("Navigasi")
 page = st.sidebar.radio("Pilih Halaman:", ["Beranda", "Deteksi Gambar", "Tentang Model"])
+
+# Tambahan info: Nama Anggota Kelompok
+st.sidebar.markdown("---")
+st.sidebar.subheader("Kelompok:")
+st.sidebar.markdown("""
+- Thania  
+- Anggi  
+- Uly  
+- Nadya  
+- Gita
+""")
 
 # Halaman Beranda
 if page == "Beranda":
@@ -56,16 +67,6 @@ if page == "Beranda":
     - Relawan kebencanaan
     - Dinas PU atau tim inspeksi
     - Peneliti AI di bidang bangunan & citra digital
-    """)
-
-    st.markdown("---")
-    st.subheader("Anggota Kelompok")
-    st.markdown("""
-    - Thania  
-    - Anggi  
-    - Uly  
-    - Nadya  
-    - Gita
     """)
 
 # Halaman Deteksi Gambar
