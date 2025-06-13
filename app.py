@@ -38,6 +38,7 @@ st.markdown(
         justify-content: center;
         margin-bottom: 30px;
         flex-wrap: wrap;
+        color: white;
     }
     .navbar button {
         margin: 5px 10px;
