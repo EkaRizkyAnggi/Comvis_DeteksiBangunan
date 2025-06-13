@@ -25,28 +25,33 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Styling background
+# Styling background dan navbar pink
 st.markdown(
     """
     <style>
     .stApp {
-        background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+        background: linear-gradient(to right, #fce4ec, #f3e5f5);
         color: #000000;
     }
     .navbar {
         display: flex;
         justify-content: center;
         margin-bottom: 30px;
+        flex-wrap: wrap;
     }
     .navbar button {
-        margin: 0 10px;
+        margin: 5px 10px;
         padding: 10px 20px;
         border: none;
-        background-color: #4CAF50;
+        background-color: #e91e63;
         color: white;
         font-weight: bold;
         cursor: pointer;
         border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    .navbar button:hover {
+        background-color: #d81b60;
     }
     </style>
     """,
@@ -60,11 +65,13 @@ pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 sidebar_selection = st.sidebar.radio("Navigasi Menu:", pages)
 
 # Navbar Horizontal
+st.markdown('<div class="navbar">', unsafe_allow_html=True)
 menu = st.columns(len(pages))
 clicked = None
 for i, label in enumerate(pages):
     if menu[i].button(label):
         clicked = label
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Sinkronisasi navigasi: jika tidak klik tombol, pakai pilihan sidebar
 if clicked is None:
