@@ -104,3 +104,25 @@ elif clicked == "Tentang Model":
 
     ### Fitur Ekstraksi:
     - **Edge Density**: Mengukur tepi/retakan
+    - **LBP**: Mengidentifikasi tekstur permukaan
+    - **HOG**: Menangkap pola arah dan kontur
+
+    ### Evaluasi Model:
+    - Akurasi: 75%
+    - Presisi (kelas rusak): 100%
+    - Recall (kelas rusak): 60%
+    - F1-score: 75%
+
+    Dataset berasal dari gambar bangunan terdampak gempa/bencana dan diproses untuk keseimbangan data. Model ini bisa dikembangkan dengan deep learning dan klasifikasi tingkat kerusakan.
+    """)
+
+# Halaman Nama Anggota Kelompok
+elif clicked == "Nama Anggota Kelompok":
+    st.title("Nama Anggota Kelompok")
+    st.markdown("""
+    - **Thania**  
+    - **Anggi**  
+    - **Nadya**  
+    - **Uly**   
+    - **Gita**
+    """)
