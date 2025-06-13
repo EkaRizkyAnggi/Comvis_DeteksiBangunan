@@ -79,7 +79,7 @@ if page == "Beranda":
 
 # halaman nama kelompok 
 
-elif  page == "Nama Anggota Kelompok ";
+elif  page == "Nama Anggota Kelompok ":
 st.markdown("""
 - Thania  
 - Anggi  
