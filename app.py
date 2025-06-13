@@ -53,17 +53,22 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Simulasi Navbar Horizontal
-menu = st.columns(4)
+# Halaman tersedia
 pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
-clicked = None
 
+# Sidebar Navigasi
+sidebar_selection = st.sidebar.radio("Navigasi Menu:", pages)
+
+# Navbar Horizontal
+menu = st.columns(len(pages))
+clicked = None
 for i, label in enumerate(pages):
     if menu[i].button(label):
         clicked = label
 
+# Sinkronisasi navigasi: jika tidak klik tombol, pakai pilihan sidebar
 if clicked is None:
-    clicked = "Beranda"  # default halaman
+    clicked = sidebar_selection
 
 # Halaman Beranda
 if clicked == "Beranda":
@@ -147,4 +152,3 @@ elif clicked == "Nama Anggota Kelompok":
     - **Nadya**  
     - **Gita**
     """)
-
