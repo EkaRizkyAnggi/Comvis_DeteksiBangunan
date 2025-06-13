@@ -52,13 +52,20 @@ if page == "Beranda":
     3. Tunggu beberapa detik, hasil akan muncul di layar
 
     ## Siapa yang Cocok Menggunakan Ini?
-
     - Mahasiswa teknik sipil atau informatika
     - Relawan kebencanaan
     - Dinas PU atau tim inspeksi
     - Peneliti AI di bidang bangunan & citra digital
+    """)
 
-    Aplikasi ini cocok digunakan oleh mahasiswa, instansi kebencanaan, serta pihak lain yang memerlukan evaluasi awal kondisi bangunan.
+    st.markdown("---")
+    st.subheader("Anggota Kelompok")
+    st.markdown("""
+    - Thania  
+    - Anggi  
+    - Uly  
+    - Nadya  
+    - Gita
     """)
 
 # Halaman Deteksi Gambar
