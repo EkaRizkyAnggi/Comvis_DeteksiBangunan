@@ -44,7 +44,7 @@ pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 # Sidebar Navigasi
 clicked = st.sidebar.radio("Navigasi Menu:", pages)
 
-# Halaman Beranda
+
 # Halaman Beranda
 if clicked == "Beranda":
     st.title("Deteksi Kerusakan Bangunan Berbasis Citra")
