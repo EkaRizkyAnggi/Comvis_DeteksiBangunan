@@ -49,8 +49,7 @@ if clicked == "Beranda":
     st.title("Deteksi Kerusakan Bangunan Berbasis Citra")
 
     st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Collapsed_house_after_earthquake_in_Lorengau.jpg/640px-Collapsed_house_after_earthquake_in_Lorengau.jpg",
-             caption="Contoh Gambar Bangunan Rusak", use_container_width=True)
-
+         caption="Rumah runtuh akibat gempa di Lorengau", use_column_width=True) 
     st.markdown("""
     Aplikasi ini dikembangkan untuk membantu proses identifikasi kerusakan bangunan pascabencana menggunakan citra digital.
 
