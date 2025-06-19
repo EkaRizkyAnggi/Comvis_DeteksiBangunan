@@ -45,16 +45,18 @@ pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 clicked = st.sidebar.radio("Navigasi Menu:", pages)
 
 # Halaman Beranda
+# Halaman Beranda
 if clicked == "Beranda":
     st.title("Deteksi Kerusakan Bangunan Berbasis Citra")
 
     st.title("Tes Gambar dari URL")
 
-st.image(
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Collapsed_house_after_earthquake_in_Lorengau.jpg/640px-Collapsed_house_after_earthquake_in_Lorengau.jpg",
-    caption="Rumah runtuh akibat gempa",
-    use_column_width=True
-)
+    st.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Collapsed_house_after_earthquake_in_Lorengau.jpg/640px-Collapsed_house_after_earthquake_in_Lorengau.jpg",
+        caption="Rumah runtuh akibat gempa",
+        use_column_width=True
+    )
+
     st.markdown("""
     Aplikasi ini dikembangkan untuk membantu proses identifikasi kerusakan bangunan pascabencana menggunakan citra digital.
 
