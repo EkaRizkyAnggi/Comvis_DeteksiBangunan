@@ -83,7 +83,7 @@ elif clicked == "Deteksi Gambar":
     uploaded_file = st.file_uploader("Upload Gambar Bangunan", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        image = Image.open(uploaded_file).convert("ffff")
+        image = Image.open(uploaded_file).convert("RGB")
         st.image(image, caption="Gambar yang Diupload", use_container_width=True)
 
         with st.spinner("Mendeteksi..."):
