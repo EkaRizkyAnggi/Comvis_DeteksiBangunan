@@ -25,13 +25,25 @@ def extract_features_from_image(image):
 
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
-# Styling background pink cerah tanpa navbar
+# Styling background pink cerah + text hitam
 st.markdown(
     """
     <style>
     .stApp {
         background: linear-gradient(to right, #fce4ec, #f3e5f5);
         color: #000000;
+    }
+    h1, h2, h3, h4, h5, h6, p, div, span, label, .markdown-text-container {
+        color: #000000 !important;
+    }
+    .sidebar .sidebar-content {
+        color: #000000;
+    }
+    .stButton>button {
+        color: #000000;
+        background-color: #ffe0e0;
+        border: none;
+        border-radius: 5px;
     }
     </style>
     """,
@@ -43,7 +55,6 @@ pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 
 # Sidebar Navigasi
 clicked = st.sidebar.radio("Navigasi Menu:", pages)
-
 
 # Halaman Beranda
 if clicked == "Beranda":
