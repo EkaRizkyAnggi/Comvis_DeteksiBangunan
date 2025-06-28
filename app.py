@@ -34,20 +34,26 @@ st.markdown(
         background: linear-gradient(to right, #fce4ec, #f3e5f5);
         color: #000000;
     }
+    
     h1, h2, h3, h4, h5, h6, p, div, span, label, .markdown-text-container {
         color: #000000 !important;
     }
-    
+
     /* Sidebar styling */
     .sidebar .sidebar-content {
-        background-color: #ffffff !important;
+        background-color: #FFFFFF !important;
         color: #000000 !important;
         width: 100%;
         padding: 20px;
     }
 
-    /* Radio button styling */
-    .sidebar .sidebar-content .radio > label {
+    /* Radio button text color */
+    .sidebar .radio > label > div > p {
+        color: #000000 !important;
+    }
+
+    .sidebar .radio > label {
+        background-color: #FFFFFF !important;
         color: #000000 !important;
     }
 
