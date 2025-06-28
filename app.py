@@ -36,13 +36,13 @@ st.markdown(
     }
     
     h1, h2, h3, h4, h5, h6, p, div, span, label, .markdown-text-container {
-        color: #ffff !important;
+        color: #000000 !important;
     }
 
     /* Sidebar styling */
     .sidebar .sidebar-content {
         background-color: #FFFFFF !important;
-        color: #000000 !important;
+        color: #ffff !important;
         width: 100%;
         padding: 20px;
     }
