@@ -49,7 +49,7 @@ st.markdown(
 
     /* Radio button text color */
     .sidebar .radio > label > div > p {
-        color: #000000 !important;
+        color: #ffff !important;
     }
 
     .sidebar .radio > label {
