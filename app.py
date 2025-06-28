@@ -36,7 +36,7 @@ st.markdown(
     }
     
     h1, h2, h3, h4, h5, h6, p, div, span, label, .markdown-text-container {
-        color: #000000 !important;
+        color: #ffff !important;
     }
 
     /* Sidebar styling */
