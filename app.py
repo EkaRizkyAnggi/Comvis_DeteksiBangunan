@@ -26,6 +26,7 @@ def extract_features_from_image(image):
     return np.concatenate([lbp_hist, hog_feature, [edge_density]])
 
 # Styling background pink cerah + text hitam
+# Styling background pink cerah + text hitam
 st.markdown(
     """
     <style>
@@ -36,9 +37,20 @@ st.markdown(
     h1, h2, h3, h4, h5, h6, p, div, span, label, .markdown-text-container {
         color: #000000 !important;
     }
+    
+    /* Sidebar styling */
     .sidebar .sidebar-content {
-        color: #000000;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        width: 100%;
+        padding: 20px;
     }
+
+    /* Radio button styling */
+    .sidebar .sidebar-content .radio > label {
+        color: #000000 !important;
+    }
+
     .stButton>button {
         color: #000000;
         background-color: #ffe0e0;
@@ -49,7 +61,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 # Halaman tersedia
 pages = ["Beranda", "Deteksi Gambar", "Tentang Model", "Nama Anggota Kelompok"]
 
